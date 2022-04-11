@@ -52,6 +52,8 @@ if (!empty($_GET['msg'])) {
 
 if (!empty($_REQUEST['uid'])) {
 $username = ($_REQUEST['uid']);
+// Anti SQL Injection //
+//$username = str_replace(array("#", "'", ";", "!", "-"), '', $username);
 $pass = $_REQUEST['password'];
 
 $q = "SELECT * FROM users where username='".$username."' AND password = '".md5($pass)."'" ;
